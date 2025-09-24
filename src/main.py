@@ -2,6 +2,8 @@ from fastapi import FastAPI, Request
 from sqlmodel import SQLModel
 from src.db import engine
 from src.routes.product import router as product_router
+from src.routes.user import router as user_router
+from src.routes.chat import router as chat_router
 from contextlib import asynccontextmanager
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
@@ -29,3 +31,5 @@ async def about(request: Request):
 
 # Include routers
 app.include_router(product_router)
+app.include_router(user_router)
+app.include_router(chat_router)
